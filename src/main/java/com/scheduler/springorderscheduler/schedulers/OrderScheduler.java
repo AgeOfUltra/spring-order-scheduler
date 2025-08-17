@@ -13,9 +13,14 @@ import java.util.List;
 public class OrderScheduler {
     @Autowired
     OrderRepository repository;
-//    @Scheduled(fixedRate = 5000)
-//    @Scheduled(initialDelay = 10000, fixedDelay = 3000)
-    @Scheduled(cron = "* * * * * *")// cron expression
+
+/*
+* Commented for dynamic scheduling
+*
+*   @Scheduled(fixedRate = 5000) // Test 1
+*   @Scheduled(initialDelay = 10000, fixedDelay = 3000) //test 2
+*   @Scheduled(cron = "* * * * * *")// cron expression // test 3
+ */
     public void processPendingOrders(){
         System.out.println("Processing Orders");
         List<Order> orders = repository.findByStatus("PENDING");

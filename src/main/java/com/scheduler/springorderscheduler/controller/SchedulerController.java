@@ -17,9 +17,8 @@ public class SchedulerController {
 
 
     @PostMapping("/update-cron")
-    public ResponseEntity<String> post(@RequestBody ScheduleConfigDto scheduleConfigDto) {
+    public ResponseEntity<String> updateCronExpression(@RequestBody ScheduleConfigDto scheduleConfigDto) {
         String result = dynamic.updateCronExpression(scheduleConfigDto.getTaskName(), scheduleConfigDto.getCornExpression());
-
         return ResponseEntity.ok(result);
 
     }
